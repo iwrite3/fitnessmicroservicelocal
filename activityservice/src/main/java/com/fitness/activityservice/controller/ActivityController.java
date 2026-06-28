@@ -23,7 +23,7 @@ public class ActivityController {
 
 
     @PostMapping
-    public ResponseEntity<ActivityResponse> saveActivity(@RequestBody ActivityRequest request) {
+    public ResponseEntity<ActivityResponse> trackActivity(@RequestBody ActivityRequest request) {
         // Logic to save the activity using the userId already inside the JSON request
 
         log.info("request came till here  path - /api/activities ");
