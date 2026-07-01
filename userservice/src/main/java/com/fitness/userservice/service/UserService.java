@@ -30,7 +30,7 @@ public class UserService {
     user.setPassword(request.getPassword());
     user.setFirstName(request.getFirstName());
     user.setLastName(request.getLastName());
-
+    user.setKeycloakId(request.getKeycloakId());
     User savedUser =   repository.save(user);
     UserResponse userResponse = new UserResponse();
         userResponse.setId(savedUser.getKeycloakId());

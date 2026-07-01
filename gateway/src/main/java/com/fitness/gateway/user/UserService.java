@@ -1,4 +1,4 @@
-package user;
+package com.fitness.gateway.user;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
