@@ -9,7 +9,7 @@ const ActivityForm = ({onActivityAdded}) =>{
     });
     const handleSubmit = async (e) =>{
     e.preventDefault();
-    try{
+    try{                
         await addActivity(activity);
         onActivityAdded();
         setActivity({type:"RUNNING",duration:'',caloriesBurned: ''});

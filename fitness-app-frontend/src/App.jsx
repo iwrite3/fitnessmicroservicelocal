@@ -17,12 +17,16 @@ import { Box } from '@mui/material';
 import ActivityForm from './components/ActivityForm';
 import ActivityList from './components/ActivityList';
 import ActivityDetail from './components/ActivityDetail';
-const ActivitiesPage = () =>
-{
- return( <Box component="section" sx={{  p: 2 , border: '1px dashed #ccc', borderRadius: '4px', boxShadow: 3, backgroundColor: '#f9f9f9' }}> 
-  <ActivityForm onActivitiesAdded = {() => window.location.reload()}   />
-  <ActivityList /> 
-</Box>);
+const ActivitiesPage = () => {
+ return ( 
+  <Box component="section" sx={{  p: 2 , border: '1px dashed #ccc', borderRadius: '4px', boxShadow: 3, backgroundColor: '#f9f9f9' }}> 
+  
+   {/* FIX: Removed the 's' so it perfectly matches the prop in ActivityForm */}
+   <ActivityForm onActivityAdded={() => window.location.reload()} />
+   
+   <ActivityList /> 
+  </Box>
+ );
 }
 function App() {
   const { token, tokenData, logIn, logOut, isAuthenticated } = useContext(AuthContext);
