@@ -3,10 +3,10 @@ import { auth } from '../firebaseConfig'; // Ensure this path points to your new
 
 // Update this URL to your Render API Gateway once deployed.
 // For local testing, you can leave it as 'http://localhost:8080/api'
-const API_URL = 'https://YOUR_RENDER_GATEWAY_URL.onrender.com/api';
+//const API_URL = 'https://YOUR_RENDER_GATEWAY_URL.onrender.com/api';
 
 const api = axios.create({
-  baseURL: API_URL,
+    baseURL: 'http://localhost:8080',
 });
 
 // The new Firebase Interceptor
