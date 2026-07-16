@@ -8,7 +8,11 @@ spring:
     database: fitnessrecommendation
   rabbitmq:
     # Use the full URL provided by CloudAMQP
-    addresses: ${RABBITMQ_URL}
+    rabbitmq:
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
     
 eureka:
   client:
