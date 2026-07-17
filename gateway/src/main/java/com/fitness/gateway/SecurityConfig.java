@@ -1,5 +1,6 @@
 package com.fitness.gateway;
 
+import org.springframework.http.HttpMethod;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -20,14 +21,14 @@ public class SecurityConfig {
     //filter chain to define security routes
     @Bean
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http){
-        return http
-                .csrf(ServerHttpSecurity.CsrfSpec::disable)
-                .authorizeExchange(exchange -> exchange
-//                .pathMatchers("/actuator/*").permitAll()
-                        .anyExchange().authenticated()
-                )
-                .oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()))
-                .build();
+        http
+                .cors(cors -> cors.disable()) // Let Spring Cloud Gateway handle CORS via YAML
+                .csrf(csrf -> csrf.disable())
+                .authorizeExchange(exchanges -> exchanges
+                        .pathMatchers(HttpMethod.OPTIONS, "/**").permitAll() // Allow preflight requests
+                        .anyExchange().authenticated() // (Or whatever your existing rules are)
+                );
+        return http.build();
     }
     @Bean
 public CorsConfigurationSource corsConfigurationSource(){
